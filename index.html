@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Route | Home</title>
+  </head>
+  <body>
+    <div class="cont">
+      <h1 id="way"></h1>
+      <button onclick="chooseway()">CHOOSE</button>
+      <h2>LINKS: <span id="links"></span></h2>
+      <h2>RECHTS: <span id="rechts"></span></h2>
+    </div>
+  </body>
+</html>
+
+<script>
+  var way = document.getElementById("way");
+  way.innerHTML = "THE WAY";
+  var vorigeoptie;
+  var vorigecount;
+  var links = document.getElementById("links");
+  var rechts = document.getElementById("rechts");
+  somlinks = 0;
+  somrechts = 0;
+  rechts.innerHTML = somrechts;
+  links.innerHTML = somlinks;
+  var count = 0;
+  function chooseway() {
+    var ways = ["RECHTS", "LINKS"];
+    var theChoise = ways[Math.floor(Math.random() * ways.length)];
+    if (vorigeoptie == theChoise) {
+      way.innerHTML = "OPNIEUW " + theChoise;
+      count++;
+    } else {
+      way.innerHTML = theChoise;
+    }
+    if (theChoise == "RECHTS") {
+      somrechts++;
+      rechts.innerHTML = somrechts;
+    } else {
+      somlinks++;
+      links.innerHTML = somlinks;
+    }
+    vorigeoptie = theChoise;
+  }
+</script>
